@@ -12,12 +12,6 @@
             overflow: hidden;
         }
         
-        .fallback-text {
-            font-size: 18px;
-            color: red;
-            display: block;
-        }
-        
         iframe {
             position: absolute;
             top: 0;
@@ -27,20 +21,13 @@
             border: none;
         }
     </style>
-    <script>
-        window.onload = function() {
-            var iframe = document.querySelector('iframe');
-            var fallbackText = document.querySelector('.fallback-text');
-            
-            iframe.onerror = function() {
-                iframe.style.display = 'none';
-                fallbackText.style.display = 'block';
-            };
-        };
-    </script>
+<script>
+  if (location.protocol === 'https:') {
+    window.location.href = 'http://' + location.host + location.pathname;
+  }
+</script>
 </head>
 <body>
-  <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
-  <p class="fallback-text">Упс... с вашим браузером небольшие проблемы. Используйте http://185.219.84.39:24058</p>
+  <iframe src="http://185.219.84.39:24058" allow="autoplay"></iframe>
 </body>
 </html>
