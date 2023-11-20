@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Error Handling</title>
+  <meta charset="utf-8">
+  <title>ASTEROID Онлайн карта</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .fallback-text {
+            font-size: 18px;
+            color: red;
+            display: block;
+        }
+        
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var iframe = document.querySelector('iframe');
+            var fallbackText = document.querySelector('.fallback-text');
+            
+            iframe.onerror = function() {
+                iframe.style.display = 'none';
+                fallbackText.style.display = 'block';
+            };
+        };
+    </script>
 </head>
 <body>
-  <iframe src="http://185.219.84.39:24058" onerror="window.location.href='https://github.com/Australiec?tab=repositories'"></iframe>
+  <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
+  <p class="fallback-text">Упс... с вашим браузером небольшие проблемы. Используйте http://185.219.84.39:24058</p>
+  <a href="https://www.example.com" class="fallback-text">Кликабельная ссылка</a>
 </body>
 </html>
