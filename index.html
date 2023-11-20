@@ -28,16 +28,19 @@
         }
     </style>
     <script>
-var myRequest = new Request('http://185.219.84.39:24058');
-
-fetch(myRequest).then(function(response) {
-  console.log(response.status); // returns 200
-}).catch(function(error) {
-  document.getElementById("iframe-id").src = "http://185.219.84.39:24058";
-});
+        window.onload = function() {
+            var iframe = document.querySelector('iframe');
+            var fallbackText = document.querySelector('.fallback-text');
+            
+            iframe.onerror = function() {
+                iframe.style.display = 'none';
+                fallbackText.style.display = 'block';
+            };
+        };
     </script>
 </head>
 <body>
-  <iframe id="iframe-id" src="http://example.com/"> </iframe>
+  <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
+  <p class="fallback-text">Упс... с вашим браузером небольшие проблемы. Используйте http://185.219.84.39:24058</p>
 </body>
 </html>
