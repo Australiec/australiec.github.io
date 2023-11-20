@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>ASTEROID Онлайн карта</title>
@@ -10,6 +10,12 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
+        }
+        
+        .fallback-text {
+            font-size: 18px;
+            color: red;
+            display: block;
         }
         
         iframe {
@@ -24,14 +30,18 @@
     <script>
         window.onload = function() {
             var iframe = document.querySelector('iframe');
+            var fallbackText = document.querySelector('.fallback-text');
             
             iframe.onerror = function() {
-                window.location.href="http://example.com/";
+                iframe.style.display = 'none';
+                fallbackText.style.display = 'block';
+                window.location.href = "http://example.com/";
             };
         };
     </script>
 </head>
 <body>
   <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
+  <p class="fallback-text">Упс... с вашим браузером небольшие проблемы. Используйте http://185.219.84.39:24058</p>
 </body>
 </html>
