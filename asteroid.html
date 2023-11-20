@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>ASTEROID Онлайн карта</title>
+  <title>ASTEROID</title>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <style>
         body, html {
@@ -21,19 +21,13 @@
             border: none;
         }
     </style>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var iframe = document.querySelector('iframe');
-            
-            window.addEventListener('message', function(event) {
-                if (event.data === 'errorOccurred') {
-                    window.location.href = "http://example2.com/";
-                }
-            });
-        });
-    </script>
+<script>
+  if (location.protocol === 'https:') {
+    window.open('https://example.com/', '_blank');
+  }
+</script>
 </head>
 <body>
-  <iframe src="http://185.219.84.39:240581" allow="autoplay"></iframe>
+  <iframe src="http://example1.com/" allow="autoplay"></iframe>
 </body>
 </html>
