@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
         .fallback-text {
             font-size: 18px;
             color: red;
-            display: block;
+            display: none;
         }
         
         iframe {
@@ -23,8 +23,20 @@
             border: none;
         }
     </style>
+    <script>
+        window.onload = function() {
+            var iframe = document.querySelector('iframe');
+            var fallbackText = document.querySelector('.fallback-text');
+            
+            iframe.onerror = function() {
+                iframe.style.display = 'none';
+                fallbackText.style.display = 'block';
+            };
+        };
+    </script>
 </head>
 <body>
   <iframe src="http://185.219.84.39:24058" width="100%" height="1200" sandbox="allow-same-origin allow-scripts"></iframe>
   <p class="fallback-text">Извините, не удалось загрузить содержимое. Пожалуйста, проверьте ваше подключение к интернету.</p>
 </body>
+</html>
