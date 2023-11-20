@@ -28,20 +28,16 @@
         }
     </style>
     <script>
-        window.onload = function() {
-            var iframe = document.querySelector('iframe');
-            var fallbackText = document.querySelector('.fallback-text');
-            
-            iframe.onerror = function() {
-                iframe.style.display = 'none';
-                fallbackText.style.display = 'block';
-            };
-        };
+var myRequest = new Request('index1.html');
+
+fetch(myRequest).then(function(response) {
+  console.log(response.status); // returns 200
+}).catch(function(error) {
+  document.getElementById("iframe-id").src = "http://example.com/";
+});
     </script>
 </head>
 <body>
-  <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
-  <p class="fallback-text">Упс... с вашим браузером небольшие проблемы. Используйте http://185.219.84.39:24058</p>
-  <a href="https://www.example.com">Кликабельная ссылка</a>
+  <iframe id="iframe-id" src="http://example.com/"> </iframe>
 </body>
 </html>
