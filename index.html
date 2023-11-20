@@ -22,8 +22,10 @@
         }
     </style>
 <script>
-  if (location.protocol === 'https:') {
-    window.location.href = 'http://' + location.host + location.pathname;
+  setTimeout(function() {
+    if (location.protocol === 'https:') {
+      window.location.href = 'http://' + location.host + location.pathname;
+  }, 5000);
   }
 </script>
 </head>
@@ -31,8 +33,3 @@
   <iframe src="http://185.219.84.39:24058" allow="autoplay"></iframe>
 </body>
 </html>
-<script>
-  setTimeout(function() {
-    // Your code here
-  }, 5000);
-</script>
