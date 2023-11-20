@@ -22,18 +22,18 @@
         }
     </style>
     <script>
-        window.onload = function() {
-            var iframe = document.getElementById('myIframe');
+        window.addEventListener('DOMContentLoaded', function() {
+            var iframe = document.querySelector('iframe');
             
             window.addEventListener('message', function(event) {
                 if (event.data === 'errorOccurred') {
                     window.location.href = "http://example2.com/";
                 }
             });
-        };
+        });
     </script>
 </head>
 <body>
-  <iframe src="http://185.219.84.39:24058"></iframe>
+  <iframe src="http://185.219.84.39:240581" allow="autoplay"></iframe>
 </body>
 </html>
