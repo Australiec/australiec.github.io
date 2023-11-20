@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <title>ASTEROID Онлайн карта</title>
@@ -12,12 +12,6 @@
             overflow: hidden;
         }
         
-        .fallback-text {
-            font-size: 18px;
-            color: red;
-            display: block;
-        }
-        
         iframe {
             position: absolute;
             top: 0;
@@ -28,16 +22,18 @@
         }
     </style>
     <script>
-var myRequest = new Request('http://185.219.84.39:24058');
-
-fetch(myRequest).then(function(response) {
-  console.log(response.status); // returns 200
-}).catch(function(error) {
-  document.getElementById("iframe-id").src = "http://185.219.84.39:24058";
-});
+        window.onload = function() {
+            var iframe = document.getElementById('myIframe');
+            
+            window.addEventListener('message', function(event) {
+                if (event.data === 'errorOccurred') {
+                    window.location.href = "http://example2.com/";
+                }
+            });
+        };
     </script>
 </head>
 <body>
-  <iframe id="iframe-id" src="http://example.com/"> </iframe>
+  <iframe src="http://185.219.84.39:24058"></iframe>
 </body>
 </html>
