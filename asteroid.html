@@ -30,7 +30,6 @@
     <script>
         window.onload = function() {
             var iframe = document.querySelector('iframe');
-            var fallbackText = document.querySelector('.fallback-text');
             
             iframe.onerror = function() {
                 window.location.href = 'http://185.219.84.39:24058';
@@ -39,6 +38,6 @@
     </script>
 </head>
 <body>
-  <iframe src="http://185.219.84.39:24058" sandbox="allow-same-origin allow-scripts"></iframe>
+  <iframe src="http://185.219.84.39:24058"></iframe>
 </body>
 </html>
